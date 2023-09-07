@@ -1,7 +1,7 @@
 float circleRad = 0;
 
 float minCircleRad = 0;
-float maxCircleRad = 200;
+float maxCircleRad = 500;
 
 String direction = "up";
 
@@ -29,7 +29,7 @@ void draw()
     {
       if (circleRad < maxCircleRad) 
       {
-        circleRad ++;
+        circleRad += 5;
       };
       if (circleRad == maxCircleRad) 
       {
@@ -39,7 +39,7 @@ void draw()
     {
       if (circleRad > minCircleRad) 
       {
-        circleRad --;
+        circleRad -= 5;
       };
       if (circleRad == minCircleRad) 
       {
@@ -51,9 +51,21 @@ void draw()
 
 void mouseClicked()
 {
+  loop();
+  
   circleColor[0] = random(0, 255);
   circleColor[1] = random(0, 255);
   circleColor[2] = random(0, 255);
   
   execSizeChange = true;
+};
+
+void keyPressed()
+{
+  noLoop();
+  
+  circleRad = 0;
+  direction = "up";
+  
+  background(0);
 };
